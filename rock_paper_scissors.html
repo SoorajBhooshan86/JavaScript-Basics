@@ -17,7 +17,12 @@
     <button onclick="alert(`Wins:${score.win} Lost:${score.lose} Tie:${score.tie}`)">Show Score</button>
     <button onclick="reset()">Reset Score</button>
 
-    <!-- <p>`Your score ${score.win} ${score.lose} ${score.tie}`</p> -->
+    <p class="js-move"></p>
+    <p class="js-result"></p>
+    <p class="js-score"></p>
+
+
+
 
     <script>
 
@@ -34,7 +39,7 @@
             score.tie = 0;
 
             localStorage.removeItem('score');
-            alert(`Wins:${score.win} Lost:${score.lose} Tie:${score.tie}`);
+            document.querySelector('.js-score').innerHTML = `Wins:${score.win} Lost:${score.lose} Tie:${score.tie}`;
         }
 
         function storeTheScore() {
@@ -90,7 +95,10 @@
                 }
             }
             storeTheScore();
-            alert(`Your move is ${move}, Computer Choice is ${computersMove} ${result} \n Wins:${score.win} Lost:${score.lose} Tie:${score.tie}`);
+            document.querySelector('.js-move').innerHTML = `Your Choice : ${move} , Computers Choice ${computersMove}`;
+            document.querySelector('.js-result').innerHTML = result;
+            document.querySelector('.js-score').innerHTML = `Wins:${score.win} Lost:${score.lose} Tie:${score.tie}`;
+
         }
 
         function something() {

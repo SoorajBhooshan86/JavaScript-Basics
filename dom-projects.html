@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>DOM</title>
+</head>
+
+<body>
+    <p>Youtube Subscribe Button</p>
+    <button onclick="changeSubscribtion()" class="js-subscribe"> Subscribe</button>
+
+    <h3>Rock Paper Scissors</h3>
+    <a href="rock_paper_scissors.html">Click Here</a>
+
+
+    <p> Amazone Shipping details</p>
+
+    <input class="js-calucate-button" placeholder="Cost of Order" type="text" onkeydown="if (event.key === 'Enter') {
+        calculateCharges()
+    }"> <button onclick="calculateCharges()">Calculate</button>
+    <h4 class=" js-total-cost"></h4>
+    <script>
+
+
+        function changeSubscribtion() {
+            document.querySelector('.js-subscribe').innerText === 'Subscribe' ? document.querySelector('.js-subscribe').innerHTML = "Subscribed"
+                : document.querySelector('.js-subscribe').innerHTML = "Subscribe";
+        }
+
+        function calculateCharges() {
+
+            let inputElement = document.querySelector(".js-calucate-button");
+            let cost = Number(inputElement.value);
+
+            if (cost >= 50) {
+                document.querySelector('.js-total-cost').innerHTML = `$${cost}`
+            } else {
+                cost += 10;
+                document.querySelector('.js-total-cost').innerHTML = `$${cost}`
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
