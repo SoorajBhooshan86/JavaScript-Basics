@@ -11,53 +11,87 @@
 
 <body>
 
-    <button onclick="playerMove(Rock)">Rock</button>
-    <button onclick="playerMove(Paper)">Paper</button>
-    <button onclick="playerMove(Scissors)">Scissors</button>
+    <button onclick="playerMove('Rock')">Rock</button>
+    <button onclick="playerMove('Paper')">Paper</button>
+    <button onclick="playerMove('Scissors')">Scissors</button>
+    <button onclick="alert(`Wins:${score.win} Lost:${score.lose} Tie:${score.tie}`)">Show Score</button>
+    <button onclick="reset()">Reset Score</button>
+
+    <!-- <p>`Your score ${score.win} ${score.lose} ${score.tie}`</p> -->
 
     <script>
 
+        let score = getTheScore() || {
+
+            win: 0,
+            lose: 0,
+            tie: 0,
+        };
+
+        function reset() {
+            score.win = 0;
+            score.lose = 0;
+            score.tie = 0;
+
+            localStorage.removeItem('score');
+            alert(`Wins:${score.win} Lost:${score.lose} Tie:${score.tie}`);
+        }
+
+        function storeTheScore() {
+            localStorage.setItem('score', JSON.stringify(score));
+        }
+
+        function getTheScore() {
+            return JSON.parse(localStorage.getItem('score'));
+        }
 
         function playerMove(move) {
 
 
             let computersMove = something();
+            let result = '';
+
+            console.log(computersMove);
 
             if (computersMove === move) {
-                alert('Its a Tie')
-            }
+                result = 'Its a Tie';
+                score.tie++;
+            } else {
+                if (computersMove === 'Rock') {
 
-            if (computersMove === 'Rock') {
+                    if (move === 'Paper') {
+                        result = 'You Win';
+                        score.win++;
+                    } else {
+                        result = 'You lost';
+                        score.lose++;
+                    }
+                }
 
-                if (move === 'Paper') {
-                    alert('You Win')
-                } else {
-                    alert('You lost')
+                if (computersMove === 'Paper') {
+                    if (move === 'Scissors') {
+                        result = 'You Win';
+                        score.win++;
+                    } else {
+                        result = 'You lost';
+                        score.lose++;
+                    }
+                }
+
+
+                if (computersMove === 'Scissors') {
+                    if (move === 'Rock') {
+                        result = 'You Win';
+                        score.win++;
+                    } else {
+                        result = 'You lost';
+                        score.lose++;
+                    }
                 }
             }
-
-            if (computersMove === 'Paper') {
-                if (move === 'Scissors') {
-                    alert('You Win')
-                } else {
-                    alert('You lost')
-                }
-            }
-
-
-            if (computersMove === 'Scissors') {
-                if (move === 'Rock') {
-                    alert('You Win')
-                } else {
-                    alert('You lost')
-                }
-            }
-
-
+            storeTheScore();
+            alert(`Your move is ${move}, Computer Choice is ${computersMove} ${result} \n Wins:${score.win} Lost:${score.lose} Tie:${score.tie}`);
         }
-
-
-
 
         function something() {
 
@@ -70,18 +104,6 @@
 
             return computersMove;
         }
-
-
-
-
-
-
-
-
-
-
-
-
     </script>
 
 
