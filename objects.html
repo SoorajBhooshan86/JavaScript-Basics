@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <script>
+
+
+        let obj = {
+            name: 'sooraj',
+            age: 25,
+            fun: function getObj() {
+                console.log(JSON.stringify(obj));
+            },
+            ['key-key']: 'This can be used if key has - in them'
+        }
+
+        obj.fun();
+
+        // Destructuring
+        const { name, age, } = obj;
+        console.log(name);
+        console.log(age);
+
+        // ShortHandProperty
+        const myname = {
+            name,
+            // ShortHandMethod
+            printMyName() {
+                console.log(myname);
+            }
+        };
+        console.log('-------------------');
+        console.log(myname);
+        console.log('-------------------');
+        myname.printMyName();
+
+
+    </script>
+</body>
+
+</html>
