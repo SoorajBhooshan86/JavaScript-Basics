@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Akronim&family=Rubik+Bubbles&display=swap');
+
+body {
+    background-color: darkslategray;
+}
+
+.move-icon {
+    background-color: black;
+    border-radius: 80px;
+    border: 3px;
+    height: 250px;
+    width: 250px;
+    margin-right: 20px;
+}
+
+.image-icon {
+    padding: 20px;
+    height: 200px;
+    width: 200px;
+    border-radius: 80px;
+}
+
+.result {
+    color: whitesmoke;
+    font-size: 50px;
+    font-family: Akronim;
+}
