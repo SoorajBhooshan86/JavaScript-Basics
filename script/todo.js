@@ -14,14 +14,12 @@ function display() {
     let resultUI = ``;
     for (let i = 0; i < todoList.length; i++) {
         resultUI +=
-            `<p>
-        ${todoList[i].todo}
-        ${todoList[i].date}
-         <button onclick="todoList.splice(${i},1);   display();" >Delete</button>
-        </p>`
+            `
+        <div>${todoList[i].todo}</div>
+        <div>${todoList[i].date}</div>
+         <button  class="delete-button" onclick="todoList.splice(${i},1);   display();" >Delete</button>
+        `
     }
-    console.log('-----------------');
-    console.log(resultUI);
 
     document.querySelector('.js-result').innerHTML = resultUI;
 }

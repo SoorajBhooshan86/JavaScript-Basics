@@ -8,4 +8,32 @@
 
 .add-button {
     padding: 10px;
+    background-color: green;
+    color: whitesmoke;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-button {
+    padding: 10px;
+    background-color: darkred;
+    color: whitesmoke;
+    border: none;
+    cursor: pointer;
+}
+
+.result,
+.selector {
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    display: grid;
+    grid-template-columns: 200px 150px 100px;
+    column-gap: 10px;
+    row-gap: 10px;
+    align-items: center;
+}
+
+.selector {
+    margin-bottom: 10px;
+    align-items: stretch;
 }
