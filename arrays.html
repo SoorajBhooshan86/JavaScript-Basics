@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Arrays</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        let myList = [0, 1, 2, 3, 4, 5, 6, 'str', true, false, { name: 'sooraj' }, undefined, null, '', NaN];
+
+        myList.forEach((value, index) => {
+            console.log(index);
+            console.log(value);
+        });
+
+        const truthyList = myList.filter((value, index) => {
+            if (value) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+
+
+        console.log('-------------------------------');
+        truthyList.forEach(value => console.log(value));
+
+        const falsyList = myList.filter((value, index) => {
+            if (!value) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+
+        console.log('-------------------------------');
+        falsyList.forEach(value => console.log(value));
+
+
+        console.log('********************************');
+        const newList = myList.map((value) => {
+            if (value == 1 || value == 2) {
+                return value + 5;
+            }
+        });
+
+        console.log('-------------------------------');
+        newList.forEach(value => console.log(value));
+
+
+        [first, second] = [true, false];
+
+        console.log(first);
+        console.log(second);
+
+
+
+    </script>
+</body>
+
+</html>
