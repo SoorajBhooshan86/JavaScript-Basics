@@ -4,11 +4,43 @@
 
 <head>
     <title>DOM</title>
+    <style>
+        .body {
+            font-family: fantasy;
+        }
+
+        .subscribe {
+            border: none;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border-radius: 80px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .is-subscribed {
+            background-color: rgb(240, 240, 240);
+            color: black;
+        }
+
+        .calulate-input {
+            font-size: 15px;
+            padding: 10px;
+        }
+
+        .calulate-button {
+            background-color: green;
+            color: white;
+            padding: 12px 15px;
+            border: none;
+        }
+    </style>
 </head>
 
 <body>
     <p>Youtube Subscribe Button</p>
-    <button onclick="changeSubscribtion()" class="js-subscribe"> Subscribe</button>
+    <button onclick="changeSubscribtion()" class="js-subscribe subscribe"> Subscribe</button>
 
     <h3>Rock Paper Scissors</h3>
     <a href="rock_paper_scissors.html">Click Here</a>
@@ -16,21 +48,32 @@
 
     <p> Amazone Shipping details</p>
 
-    <input class="js-calucate-button" placeholder="Cost of Order" type="text" onkeydown="if (event.key === 'Enter') {
+    <input class="js-calucate-input calulate-input" placeholder="Cost of Order" type="text" onkeydown="if (event.key === 'Enter') {
         calculateCharges()
-    }"> <button onclick="calculateCharges()">Calculate</button>
+    }"> <button onclick="calculateCharges()" class="calulate-button">Calculate</button>
     <h4 class=" js-total-cost"></h4>
     <script>
 
 
         function changeSubscribtion() {
-            document.querySelector('.js-subscribe').innerText === 'Subscribe' ? document.querySelector('.js-subscribe').innerHTML = "Subscribed"
-                : document.querySelector('.js-subscribe').innerHTML = "Subscribe";
+
+            const buttonElement = document.querySelector('.js-subscribe');
+
+            if (buttonElement.innerText === 'Subscribe') {
+                buttonElement.innerHTML = "Subscribed";
+                buttonElement.classList.add('is-subscribed')
+
+            } else {
+                buttonElement.innerHTML = "Subscribe";
+                buttonElement.classList.remove('is-subscribed')
+            }
+
+
         }
 
         function calculateCharges() {
 
-            let inputElement = document.querySelector(".js-calucate-button");
+            let inputElement = document.querySelector(".js-calucate-input");
             let cost = Number(inputElement.value);
 
             if (cost >= 50) {
