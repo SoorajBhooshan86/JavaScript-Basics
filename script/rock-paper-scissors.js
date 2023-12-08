@@ -11,6 +11,9 @@ let moves = {
     scissors: 'scissors'
 }
 
+let isAutoplay = false;
+let setIntervalID;
+
 function reset() {
     score.win = 0;
     score.lose = 0;
@@ -26,6 +29,22 @@ function storeTheScore() {
 
 function getTheScore() {
     return JSON.parse(localStorage.getItem('score'));
+}
+
+function autoPlay() {
+    if (!isAutoplay) {
+        setIntervalID = setInterval(function () {
+
+            let randomMove = something();
+            playerMove(randomMove);
+            isAutoplay = true;
+
+        }, 1000);
+    } else {
+        clearInterval(setIntervalID)
+        isAutoplay = false;
+    }
+
 }
 
 function playerMove(move) {
