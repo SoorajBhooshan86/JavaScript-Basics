@@ -48,11 +48,24 @@
 
     <p> Amazone Shipping details</p>
 
-    <input class="js-calucate-input calulate-input" placeholder="Cost of Order" type="text" onkeydown="if (event.key === 'Enter') {
-        calculateCharges()
-    }"> <button onclick="calculateCharges()" class="calulate-button">Calculate</button>
+    <input class="js-calucate-input calulate-input" placeholder="Cost of Order" type="text"> <button
+        onclick="calculateCharges()" class="calulate-button">Calculate</button>
+    <button onclick="disableButton()" class="disable-button">Disable</button>
     <h4 class=" js-total-cost"></h4>
     <script>
+
+        const calculateInputElement = document.querySelector('.js-calucate-input');
+
+        const eventListener = () => {
+            if (event.key === 'Enter') calculateCharges();
+        }
+
+        calculateInputElement.addEventListener("keydown", eventListener);
+
+
+        function disableButton() {
+            calculateInputElement.removeEventListener("keydown", eventListener);
+        }
 
 
         function changeSubscribtion() {
